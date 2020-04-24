@@ -13,7 +13,9 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/derp_raphael.mk
-
+    $(LOCAL_DIR)/stag_raphael.mk
+    
 COMMON_LUNCH_CHOICES := \
-    derp_raphael-userdebug
+    stag_raphael-user \
+    stag_raphael-userdebug \
+    stag_raphael-eng

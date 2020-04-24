@@ -15,11 +15,11 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/xiaomi/raphael/msmnile.mk)
 
-# Inherit some common ROM stuff.
-$(call inherit-product, vendor/aosip/config/common_full_phone.mk)
+$(call inherit-product, vendor/stag/main.mk)
+# Inherit some common PixelExperience stuff.
+$(call inherit-product, vendor/stag/config/common.mk)
 
-# Official-ify
-DERP_BUILDTYPE := Official
+include device/qcom/common/common.mk
 
 # Setup Gapps options
 IS_PHONE := true
@@ -30,7 +30,7 @@ TARGET_MINIMAL_APPS := false
 TARGET_SUPPORTS_GOOGLE_RECORDER := false
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := derp_raphael
+PRODUCT_NAME := stag_raphael
 PRODUCT_DEVICE := raphael
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi K20 Pro
