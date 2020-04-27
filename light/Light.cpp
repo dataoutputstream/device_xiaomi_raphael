@@ -22,8 +22,7 @@
 
 #include <fstream>
 
-#define BLUE_LED        "/sys/class/leds/blue/"
-#define GREEN_LED       "/sys/class/leds/green/"
+
 #define LCD_LED         "/sys/class/backlight/panel0-backlight/"
 #define BLUE_LED        "/sys/class/leds/blue/"
 #define GREEN_LED       "/sys/class/leds/green/"
