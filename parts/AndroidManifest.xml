@@ -64,6 +64,7 @@
                  android:permission="org.evolution.device.MANAGE_POPUP_CAMERA_SERVICE"
                  android:exported="true"
                  android:directBootAware="true">
+             </service>
 
         <service
             android:name=".fpsinfo.FPSInfoService"

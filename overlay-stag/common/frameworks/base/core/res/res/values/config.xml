@@ -100,7 +100,7 @@
     </string-array>
 
     <!-- Pixel -->
-    <bool name="config_swipe_up_gesture_setting_available">true</bool>
+    <!--<bool name="config_swipe_up_gesture_setting_available">true</bool>-->
     <bool name="config_smart_battery_available">true</bool>
     <bool name="config_unplugTurnsOnScreen">true</bool>
 
@@ -121,7 +121,6 @@
          of their choosing.
          This can be overridden for devices where a different default SMS
          application is desired.
-
          If this string is empty or the specified package does not exist, then
          the platform will search for an SMS app and use that (if there is one)-->
     <string name="default_sms_application" translatable="false">com.google.android.apps.messaging</string>
@@ -149,6 +148,7 @@
 
     <!-- Whether the device supports Smart Pixels.  -->
     <bool name="config_enableSmartPixels">true</bool>
-    
-    
+
+         <string name="config_recentsComponentName" translatable="false">ch.deletescape.lawnchair.ci/com.android.quickstep.RecentsActivity</string>
+
 </resources>
