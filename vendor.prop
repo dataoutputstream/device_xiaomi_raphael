@@ -200,5 +200,3 @@ debug.sf.early_gl_app_phase_offset_ns=15000000
 persist.debug.wfd.enable=1
 persist.sys.wfd.virtual=0
 
-#Vulcan render
-debug.hwui.renderer=skiavk

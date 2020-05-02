@@ -46,7 +46,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         DiracUtils.initialize(context);
         DozeUtils.checkDozeService(context);
 
-        boolean fodScreenOffState = sharedPrefs.getBoolean(FOD_SCREENOFF_ENABLE_KEY, false);
+        boolean fodScreenOffState = sharedPrefs.getBoolean(FOD_SCREENOFF_ENABLE_KEY, true);
         SystemProperties.set(FOD_SCRNOFFD_PROP, fodScreenOffState ? "1" : "0");
 
         boolean dcDimmingEnabled = sharedPrefs.getBoolean(DC_DIMMING_ENABLE_KEY, false);
