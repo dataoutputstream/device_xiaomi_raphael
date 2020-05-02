@@ -27,7 +27,6 @@ import androidx.preference.PreferenceManager;
 
 import org.lineageos.settings.dirac.DiracUtils;
 import org.lineageos.settings.doze.DozeUtils;
-import org.lineageos.settings.popupcamera.PopupCameraUtils;
 import org.lineageos.settings.utils.FileUtils;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
@@ -46,7 +45,6 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         if (DEBUG) Log.d(TAG, "Received boot completed intent");
         DiracUtils.initialize(context);
         DozeUtils.checkDozeService(context);
-        PopupCameraUtils.startService(context);
 
         boolean fodScreenOffState = sharedPrefs.getBoolean(FOD_SCREENOFF_ENABLE_KEY, false);
         SystemProperties.set(FOD_SCRNOFFD_PROP, fodScreenOffState ? "1" : "0");

@@ -25,6 +25,10 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <protected-broadcast android:name="com.android.systemui.doze.pulse" />
+    
+      <permission
+        android:name="org.evolution.device.MANAGE_POPUP_CAMERA_SERVICE"
+        android:protectionLevel="signature|privileged" />
 
     <uses-sdk
         android:minSdkVersion="24"
@@ -56,9 +60,10 @@
                  android:permission="XiaomiDozeService">
         </service>
 
-        <service android:name=".popupcamera.PopupCameraService"
-                 android:permission="PopupCameraService">
-        </service>
+         <service android:name="org.lineageos.settings.popupcamera.PopupCameraService"
+                 android:permission="org.evolution.device.MANAGE_POPUP_CAMERA_SERVICE"
+                 android:exported="true"
+                 android:directBootAware="true">
 
         <service
             android:name=".fpsinfo.FPSInfoService"

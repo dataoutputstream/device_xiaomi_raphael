@@ -1099,6 +1099,47 @@
     <string name="config_popUpCameraServiceComponentName" translatable="false">org.lineageos.settings/org.lineageos.settings.popupcamera.PopupCameraService</string>
     
         <integer name="config_deviceLightCapabilities">232</integer>
+        
+        
+        <!-- Shows the required view for in-display fingerprint -->
+    <bool name="config_needCustomFODView">true</bool>
+
+    <!-- Max visible notification icons -->
+    <integer name="config_maxVisibleNotificationIcons">5</integer>
+    <integer name="config_maxVisibleNotificationIconsWhenDark">6</integer>
+    
+    <!-- Whether device has screen with higher aspect ratio -->
+    <bool name="config_haveHigherAspectRatioScreen">true</bool>
+
+    <!-- Display mode remapping table.
+         If the mode names returned by the backend do not match
+         the predefined and translated strings in the Settings
+         app, they can be remapped here. The format is
+         "oldname:newname", one per entry. -->
+    <string-array name="config_displayModeMappings" translatable="false">
+        <item>none:standard</item>
+        <item>smart_eyedefault:reading</item>
+        <item>GM_1:saturated</item>
+        <item>hal_srgb:srgb</item>
+        <item>smart_MC:dci_p3</item>
+    </string-array>
+
+    <!-- Should we filter any display modes which are unampped? -->
+    <bool name="config_filterDisplayModes">true</bool>
+
+     <!-- Does the battery LED support multiple colors?
+         Used to decide if the user can change the colors -->
+    <bool name="config_multiColorBatteryLed">false</bool>
+    
+    
+<!-- Smart charge sysfs node and value for suspend/resume charging-->
+    <string name="config_SmartChargingSysfsNode" translatable="false">/sys/class/power_supply/battery/input_suspend</string>
+    <string name="config_SmartChargingSupspendValue" translatable="false">1</string>
+    <string name="config_SmartChargingResumeValue" translatable="false">0</string>
+    
+    <!-- Whether or not swipe up gesture's opt-in setting is available on this device -->
+     <bool name="config_swipe_up_gesture_setting_available">true</bool>
+
 
 
 </resources>

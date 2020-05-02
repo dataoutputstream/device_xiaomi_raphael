@@ -20,4 +20,12 @@
     <dimen name="rounded_corner_content_padding">11dp</dimen>
     <dimen name="system_icons_keyguard_padding_end">4dp</dimen>
     <dimen name="status_bar_extra_padding">11dp</dimen>
+    
+    <!-- The maximum count of notifications on Keyguard (only when ambient play indication is showing on keyguard).
+         The rest will be collapsed in an overflow card.
+     -->
+    <integer name="keyguard_max_notification_count_ambient_play">2</integer>
+
+    <!-- Bottom margin size when fingerprint in display is active -->
+    <dimen name="keyguard_indication_margin_bottom_fingerprint_in_display">192dp</dimen>
 </resources>
