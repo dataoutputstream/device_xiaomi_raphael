@@ -22,16 +22,11 @@
 
 #include <fstream>
 
-
 #define LCD_LED         "/sys/class/backlight/panel0-backlight/"
 #define BLUE_LED        "/sys/class/leds/blue/"
 #define GREEN_LED       "/sys/class/leds/green/"
 
-#define BREATH          "breath"
 #define BRIGHTNESS      "brightness"
-
-#define DELAY_OFF       "delay_off"
-#define DELAY_ON        "delay_on"
 
 #define MAX_LED_BRIGHTNESS    255
 #define MAX_LCD_BRIGHTNESS    2047
@@ -90,35 +85,24 @@ static inline uint32_t getScaledBrightness(const LightState& state, uint32_t max
 
 static void handleBacklight(const LightState& state) {
     uint32_t brightness = getScaledBrightness(state, MAX_LCD_BRIGHTNESS);
+    if (brightness == 1){
+        brightness = 2;
+    }
     set(LCD_LED BRIGHTNESS, brightness);
 }
-
 
 static void handleNotification(const LightState& state) {
     uint32_t blueBrightness = getScaledBrightness(state, MAX_LED_BRIGHTNESS);
     uint32_t greenBrightness = getScaledBrightness(state, MAX_LED_BRIGHTNESS);
 
-    /* Disable breathing or blinking */
     set(BLUE_LED BREATH, 0);
-    set(BLUE_LED DELAY_OFF, 0);
-    set(BLUE_LED DELAY_ON, 0);
-
     set(GREEN_LED BREATH, 0);
-    set(GREEN_LED DELAY_OFF, 0);
-    set(GREEN_LED DELAY_ON, 0);
 
     switch (state.flashMode) {
         case Flash::HARDWARE:
-            /* Breathing */  
+        case Flash::TIMED:
             set(BLUE_LED BREATH, 1);
             set(GREEN_LED BREATH, 1);
-            break;
-        case Flash::TIMED:
-            /* Blinking */
-            set(BLUE_LED DELAY_OFF, state.flashOnMs);
-            set(BLUE_LED DELAY_ON, state.flashOffMs);
-            set(GREEN_LED DELAY_OFF, state.flashOnMs);
-            set(GREEN_LED DELAY_ON, state.flashOffMs);
             break;
         case Flash::NONE:
         default:
@@ -144,10 +128,6 @@ static inline bool isStateEqual(const LightState& first, const LightState& secon
 
 /* Keep sorted in the order of importance. */
 static std::vector<LightBackend> backends = {
-
-    { Type::ATTENTION, handleNotification },
-    { Type::NOTIFICATIONS, handleNotification },
-    { Type::BATTERY, handleNotification },
     { Type::BACKLIGHT, handleBacklight },
 };
 
