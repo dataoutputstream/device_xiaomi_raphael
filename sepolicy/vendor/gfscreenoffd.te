@@ -1,5 +1,5 @@
-type gfscreenoffd, domain;
-type gfscreenoffd_exec, exec_type, file_type;
+type gfscreenoffd, domain, coredomain;
+type gfscreenoffd_exec, exec_type, file_type, system_file_type;
 
 init_daemon_domain(gfscreenoffd)
 
