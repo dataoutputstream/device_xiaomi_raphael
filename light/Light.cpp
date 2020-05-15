@@ -28,8 +28,6 @@
 
 #define BREATH          "breath"
 #define BRIGHTNESS      "brightness"
-#define DELAY_OFF       "delay_off"
-#define DELAY_ON        "delay_on"
 
 #define MAX_LED_BRIGHTNESS    255
 #define MAX_LCD_BRIGHTNESS    2047
@@ -88,6 +86,9 @@ static inline uint32_t getScaledBrightness(const LightState& state, uint32_t max
 
 static void handleBacklight(const LightState& state) {
     uint32_t brightness = getScaledBrightness(state, MAX_LCD_BRIGHTNESS);
+    if (brightness == 1){
+        brightness = 2;
+    }
     set(LCD_LED BRIGHTNESS, brightness);
 }
 
@@ -97,12 +98,10 @@ static void handleNotification(const LightState& state) {
     /* Disable breathing or blinking */
 
     set(GREEN_LED BREATH, 0);
-    set(GREEN_LED DELAY_OFF, 0);
-    set(GREEN_LED DELAY_ON, 0);
 
     switch (state.flashMode) {
         case Flash::HARDWARE:
-            /* Breathing */  
+            /* Breathing */ 
             set(GREEN_LED BREATH, 1);
             break;
         case Flash::TIMED:
