@@ -344,6 +344,8 @@ vendor/lib64/vendor.xiaomi.hardware.motor@1.0.so
 # Camera Popup Sound
 media/audio/ui/popup_cangmen_down.ogg
 media/audio/ui/popup_cangmen_up.ogg
+media/audio/ui/popup_mario_down.ogg
+media/audio/ui/popup_mario_up.ogg
 media/audio/ui/popup_chilun_down.ogg
 media/audio/ui/popup_chilun_up.ogg
 media/audio/ui/popup_jijia_down.ogg

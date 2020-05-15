@@ -102,7 +102,8 @@ on boot
 
     chown system system /sys/kernel/boot_slpi/ssr
     
-    # Power supply
+
+     # Power supply
     chmod 0660 /sys/class/power_supply/battery/input_suspend
     chmod 0666 /sys/class/power_supply/battery/input_suspend
     chmod 0660 /sys/class/power_supply/battery/charging_enabled
